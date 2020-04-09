@@ -5,6 +5,8 @@ import {
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import { Menu } from '@material-ui/icons'
+import CssBaseline from "@material-ui/core/CssBaseline";
+
 
 const drawerWidth=240;
 
@@ -65,7 +67,7 @@ class Layout extends Component {
         </div>
       )
 
-      return <Fragment>
+      return <React.Fragment>
       <CssBaseline />
       <div className={classes.root}>
       <AppBar position="absolute" className={classes.appBar}>
@@ -106,7 +108,7 @@ class Layout extends Component {
       {children}
       </main>
       </div>
-      </Fragment>
+      </React.Fragment>
     }
   }
 
