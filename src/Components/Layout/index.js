@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import {
     AppBar, Toolbar, IconButton, Typography, Hidden,
     Drawer, Divider, 
@@ -67,7 +67,7 @@ class Layout extends Component {
         </div>
       )
 
-      return <React.Fragment>
+      return <Fragment>
       <CssBaseline />
       <div className={classes.root}>
       <AppBar position="absolute" className={classes.appBar}>
@@ -108,7 +108,7 @@ class Layout extends Component {
       {children}
       </main>
       </div>
-      </React.Fragment>
+      </Fragment>
     }
   }
 
