@@ -4,7 +4,7 @@ import {
     Drawer, Divider, 
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import { Menu } from '@material-ui/icons'
+import { Menu, Chat, Forum, InsertComment } from '@material-ui/icons'
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 
@@ -19,13 +19,16 @@ const styles=theme=>({
     position:'relative',
     display:'flex',
     width:'100%',
+    justifyContent:"space-evenly",
   },
   appBar:{
     position:'absolute',
+    display:"flex",
     marginLeft:drawerWidth,
     [theme.breakpoints.up('md')]:{
       width:`calc(100% - ${drawerWidth}px)`,
-    }
+    },
+    justifyContent:"space-between",
   },
   navIconHide:{
     [theme.breakpoints.up('md')]:{
@@ -61,7 +64,9 @@ class Layout extends Component {
 
       const drawer = (
         <div>
+        <Hidden smDown>
         <div className={classes.toolbar} />
+        </Hidden>
         hello
         <Divider />
         </div>
@@ -72,17 +77,17 @@ class Layout extends Component {
       <div className={classes.root}>
       <AppBar position="absolute" className={classes.appBar}>
       <Toolbar>
+      <Typography variant="title" color="inherit" noWrap>
+      Writers Blog
+      </Typography>
       <IconButton
       color="inherit"
       aria-label="open drawer"
       onClick={this.handleDrawerToggle}
       className={classes.navIconHide}
       >
-      <Menu />
+      <InsertComment />
       </IconButton>
-      <Typography variant="title" color="inherit" noWrap>
-      Writers Blog
-      </Typography>
       </Toolbar>
       </AppBar>
       <Hidden mdUp>
@@ -92,6 +97,7 @@ class Layout extends Component {
       onClose={this.handleDrawerToggle}
       classes={{paper:classes.drawerPaper,}}
       ModalProps={{ keepMounted: true, }}
+      anchor="right"
       >{drawer}
       </Drawer>
       </Hidden>
