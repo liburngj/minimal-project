@@ -1,0 +1,40 @@
+{
+    "writers":[
+        {
+            "id":"ralph-waldo-emerson",
+            "name":"Ralph Waldo Emerson",
+            "born":"May 25, 1803",
+            "deceased":"April 27, 1882",
+            "description":"American esseyist, lecturer, philosopher",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/d/d5/Ralph_Waldo_Emerson_ca1857_retouched.jpg"
+        },{
+            "id":"friedrich-nietzsche",
+            "name":"Friedrich Nietzsche",
+            "born":"October 15, 1844",
+            "deceased":"August 25, 1900",
+            "description":"German philosopher, cultural critic, composer, poet, philologist",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg"
+        },{
+            "id":"carl-jung",
+            "name":"Carl Jung",
+            "born":"July 26, 1875",
+            "deceased":"June 6, 1961",
+            "description":"Swiss psychiatrist and psychoanalyt who founded analytical psychology.",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/0/00/CGJung.jpg"
+        },{
+            "id":"joseph-campbell",
+            "name":"Joseph Campbell",
+            "born":"March 26, 1904",
+            "deceased":"October 30, 1987",
+            "description":"American mythologist who worked in comparative mythology and comparative religion.",
+            "image":"https://upload.wikimedia.org/wikipedia/en/f/f9/Joseph_Campbell_circa_1982.jpg"
+        },{
+            "id":"osho",
+            "name":"Rajneesh (Osho)",
+            "born":"December 11, 1931",
+            "deceased":"January 19, 1990",
+            "description":"Indian spiritual guru, considered as a Godman and leader of the Rajneesh movement.",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/3/3a/Bhagwan_beweging_gekwetst_door_reclame-affiche_van_het_NRC_met_de_tekst_profeet_%2C_Bestanddeelnr_933-0734-cropped.jpg"
+        }
+    ]
+}
