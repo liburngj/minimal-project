@@ -6,6 +6,7 @@ import {
 import { withStyles } from '@material-ui/core/styles'
 import { Menu, Chat, Forum, InsertComment } from '@material-ui/icons'
 import CssBaseline from "@material-ui/core/CssBaseline";
+import clsx from 'clsx';
 
 
 const drawerWidth=240;
@@ -21,23 +22,44 @@ const styles=theme=>({
     width:'100%',
     justifyContent:"space-evenly",
   },
-  appBar:{
+  appBar: {
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+ /* appBar:{
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
     position:'absolute',
-    display:"flex",
-    marginLeft:drawerWidth,
+    marginLeft: drawerWidth,
     [theme.breakpoints.up('md')]:{
       width:`calc(100% - ${drawerWidth}px)`,
     },
-    justifyContent:"space-between",
-  },
+  },*/
   navIconHide:{
     [theme.breakpoints.up('md')]:{
       display:'none',
     },
+    marginRight: theme.spacing(2),
+    width: drawerWidth,
+    flexShrink: 0,
+
+    //left:`calc(80%)- ${100}px)`,
   },
   toolbar:theme.mixins.toolbar,
   drawerPaper:{
-    width:drawerWidth,
+    width: drawerWidth,
     [theme.breakpoints.up('md')]:{
       position:'relative',
     },
@@ -45,10 +67,10 @@ const styles=theme=>({
   content:{
     flexGrow:1,
     backgroundColor:theme.palette.background.default,
-    padding:theme.spacing.unit*3,
+    padding: theme.spacing.unit*3,
   },
 })
-
+//{classes.appBar}
 class Layout extends Component {
     state={
         mobileOpen: false
@@ -57,8 +79,8 @@ class Layout extends Component {
     handleDrawerToggle=() =>{
         this.setState({mobileOpen:!this.state.mobileOpen})
     }
-
     render(){
+    
       const { classes, children } = this.props
       const { mobileOpen } = this.state
 
@@ -71,11 +93,13 @@ class Layout extends Component {
         <Divider />
         </div>
       )
+      
 
       return <Fragment>
       <CssBaseline />
       <div className={classes.root}>
-      <AppBar position="absolute" className={classes.appBar}>
+      <AppBar position="absolute" className={classes.appBar}
+      >
       <Toolbar>
       <Typography variant="title" color="inherit" noWrap>
       Writers Blog
