@@ -11,5 +11,6 @@ export default ({ match: { url } , writers}) =>
         </Link>
         </li>)}
 </ul>
-<Route path={`${url}/:writerId`} render={()=> <Writer/>}/>
+<Route path={`${url}/:writerId`} render={
+    ({match}) => <Writer  {...writers.find(writer =>writer.id ===match.params.writerId)}/>}/>
 </Fragment>

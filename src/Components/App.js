@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Switch, Route} from 'react-router-dom'
+import { BrowserRouter, Link, Switch, Route} from 'react-router-dom'
 //import { NotFound } from './Errors'
 import Writers from './Writers'
 import Layout from './Layout'
@@ -31,7 +31,6 @@ export default class extends Component{
     </Switch>
     </Layout>
     </BrowserRouter>
-
 
   }
 

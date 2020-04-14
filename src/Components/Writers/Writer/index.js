@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
 
-export default props =>
+export default ({ match, id, name, description, image }) =>
 <Fragment>
 <div>
-id 
+{id} 
 
-name
+{name}
 
-description
+{description}
 
-img
+{image}
 </div>
 </Fragment>
