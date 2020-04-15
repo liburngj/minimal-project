@@ -10,7 +10,7 @@ export default class extends Component{
   }
 
   async componentDidMount(){
-    const writers= await(await fetch('http://localhost:3004/writers?_embed=texts'))
+    const writers= await ( await fetch('http://localhost:3004/writers?_embed=texts'))
     .json()
 
     this.setState({ writers })

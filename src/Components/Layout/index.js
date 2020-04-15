@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import {
     AppBar, Toolbar, IconButton, Typography, Hidden,
-    Drawer, Divider, 
+    Drawer, MenuList, MenuItem 
 } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 import { Menu, Chat, Forum, InsertComment } from '@material-ui/icons'
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -21,10 +22,11 @@ const styles=theme=>({
     justifyContent:"space-evenly",
   },
   appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
+   /* transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
-    }),
+    }),*/
+    zIndex: theme.zIndex.drawer + 1,
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -53,7 +55,7 @@ const styles=theme=>({
     //width: drawerWidth,
     flexShrink: 0,
     position:'fixed',
-    left:`calc(100% - ${90}px)`,
+    left:`calc(100% - ${60}px)`,
    // marginRight: drawerWidth,
     //left:`calc(80%)- ${100}px)`,
   },
@@ -69,6 +71,9 @@ const styles=theme=>({
     backgroundColor:theme.palette.background.default,
     padding: theme.spacing.unit*3,
   },
+  nested:{
+    paddingLeft:theme.spacing.unit*4,
+  },
 })
 //{classes.appBar}
 class Layout extends Component {
@@ -81,7 +86,7 @@ class Layout extends Component {
     }
     render(){
     
-      const { classes, children } = this.props
+      const { classes, children, writers } = this.props
       const { mobileOpen } = this.state
 
       const drawer = (
@@ -89,8 +94,24 @@ class Layout extends Component {
         <Hidden smDown>
         <div className={classes.toolbar} />
         </Hidden>
-        hello
-        <Divider />
+        <MenuList>
+        <MenuItem component={Link} to="/">Home
+        </MenuItem>
+        <MenuItem component={Link} to="/writers">Writers
+        </MenuItem>
+        <MenuList>
+        {writers.map(({ id, name })=>{
+          return <MenuItem 
+          key={id} 
+          className={classes.nested} 
+          component={Link} 
+          to={`/writers/${id}`}
+          >
+          {name}
+          </MenuItem>
+        })}
+        </MenuList>
+        </MenuList>
         </div>
       )
       
