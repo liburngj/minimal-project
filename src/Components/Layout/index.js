@@ -7,8 +7,6 @@ import { withStyles } from '@material-ui/core/styles'
 import { Menu, Chat, Forum, InsertComment } from '@material-ui/icons'
 import CssBaseline from "@material-ui/core/CssBaseline";
 import clsx from 'clsx';
-
-
 const drawerWidth=240;
 
 const styles=theme=>({
@@ -30,11 +28,11 @@ const styles=theme=>({
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    marginRight: drawerWidth,
   },
  /* appBar:{
     transition: theme.transitions.create(['margin', 'width'], {
@@ -52,9 +50,11 @@ const styles=theme=>({
       display:'none',
     },
     marginRight: theme.spacing(2),
-    width: drawerWidth,
+    //width: drawerWidth,
     flexShrink: 0,
-
+    position:'fixed',
+    left:`calc(100% - ${90}px)`,
+   // marginRight: drawerWidth,
     //left:`calc(80%)- ${100}px)`,
   },
   toolbar:theme.mixins.toolbar,
