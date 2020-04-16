@@ -3,7 +3,7 @@ import {
     AppBar, Toolbar, IconButton, Typography, Hidden,
     Drawer, MenuList, MenuItem 
 } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 import { Menu, Chat, Forum, InsertComment } from '@material-ui/icons'
 import CssBaseline from "@material-ui/core/CssBaseline";
