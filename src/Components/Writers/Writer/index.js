@@ -1,14 +1,20 @@
 import React, { Fragment } from 'react'
 
-export default ({ match, id, name, description, image }) =>
+export default ({ match, id,born,deceased, name, description, image }) =>
 <Fragment>
 <div>
-{id} 
 
-{name}
+<h1>{name}</h1>
 
+<h3>
+{born} &mdash; {deceased} 
+</h3>
+
+<p>
 {description}
+</p>
 
-{image}
+<img src={image} alt={name} style={{maxWidth:300}}/>
+
 </div>
 </Fragment>

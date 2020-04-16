@@ -8,9 +8,9 @@ export default class extends Component{
   state={
     writers:[]
   }
-
+//?_embed=texts
   async componentDidMount(){
-    const writers= await ( await fetch('http://localhost:3004/writers?_embed=texts'))
+    const writers= await ( await fetch('http://localhost:3004/writers'))
     .json()
 
     this.setState({ writers })

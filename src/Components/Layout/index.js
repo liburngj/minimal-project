@@ -5,11 +5,12 @@ import {
 } from '@material-ui/core'
 import { Link, withRouter } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
-import { Menu, Chat, Forum, InsertComment } from '@material-ui/icons'
+import {  InsertComment } from '@material-ui/icons'
 import CssBaseline from "@material-ui/core/CssBaseline";
 import clsx from 'clsx';
-const drawerWidth=240;
+import { compose } from 'recompose'
 
+const drawerWidth=240;
 const styles=theme=>({
   root:{
     flexGrow:1,
@@ -86,7 +87,7 @@ class Layout extends Component {
     }
     render(){
     
-      const { classes, children, writers } = this.props
+      const { classes, children, location: { pathname }, writers } = this.props
       const { mobileOpen } = this.state
 
       const drawer = (
@@ -95,17 +96,19 @@ class Layout extends Component {
         <div className={classes.toolbar} />
         </Hidden>
         <MenuList>
-        <MenuItem component={Link} to="/">Home
+        <MenuItem component={Link} to="/" selected={'/'===pathname}>Home
         </MenuItem>
-        <MenuItem component={Link} to="/writers">Writers
+        <MenuItem component={Link} to="/writers" selected={'/writers'===pathname}>Writers
         </MenuItem>
         <MenuList>
         {writers.map(({ id, name })=>{
+          const to =`/writers/${id}`
           return <MenuItem 
           key={id} 
           className={classes.nested} 
           component={Link} 
-          to={`/writers/${id}`}
+          to={to}
+          selected={to===pathname}
           >
           {name}
           </MenuItem>
@@ -166,4 +169,7 @@ class Layout extends Component {
 
 
 
-export default withStyles(styles)(Layout)
+export default compose(
+  withRouter,
+  withStyles(styles)
+)(Layout)
